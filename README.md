@@ -9,8 +9,7 @@ _Unfortunately, Parcel does not support StackBlitz, so you'll have to clone this
 ## How to use
 
 ```sh
-git clone https://github.com/twbs/examples.git
-cd examples/parcel/
+git clone https://github.com/ratanont-s/test-axons.git
 npm install
 npm start
 ```
