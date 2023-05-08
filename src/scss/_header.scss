@@ -1,0 +1,18 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $header-bg;
+    color: $header-color;
+    height: $header-height;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 40;
+    &-right{
+        display: flex;
+        align-items: center;
+    }
+}

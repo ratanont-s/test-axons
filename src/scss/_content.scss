@@ -1,0 +1,29 @@
+.content{
+    margin-top: $header-height;
+    padding: $content-padding;
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-grow: 1;
+    transition:all .3s ease;
+    &-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+    &-title{
+        font-size: 28px;
+        margin-bottom: 0;
+    }
+    &-tools{
+        display: flex;
+        align-items: center;
+        grid-column-gap: 18px;
+    }
+    @include media-breakpoint-up(md){
+        margin-left: $sidebar-width-toggle;
+    }
+    @include media-breakpoint-up(xl){
+        margin-left: $sidebar-width;
+    }
+}

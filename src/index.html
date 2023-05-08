@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AXONS</title>
+
+  <!-- Highcharts -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+
+  <!-- JQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+  <!-- Moment -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+  <!-- Daterangepicker -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+  <!-- Select2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-5-theme/1.3.0/select2-bootstrap-5-theme.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+  <link rel="stylesheet" href="scss/styles.scss">
+  <script type="module" src="js/main.js"></script>
+</head>
+
+<body id="app">
+  <div class="layout">
+    <nav class="sidebar">
+      <ul class="menu">
+        <li class="menu-item">
+          <a href="/" class="menu-link active">
+            <span class="menu-icon"><i class="icon-grid"></i></span>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#menuEcommerce" class="menu-link" data-bs-toggle="collapse" aria-expanded="false">
+            <span class="menu-icon"><i class="icon-cart"></i></span>
+            <span class="menu-title">E-Commerce</span>
+          </a>
+          <div class="collapse" id="menuEcommerce">
+            <ul class="submenu">
+              <li class="submenu-item">
+                <a href="/products" class="submenu-link active" data-bs-toggle="tooltip" title="Products">
+                  <span class="submenu-title">Products</span>
+                </a>
+              </li>
+              <li class="submenu-item">
+                <a href="/" class="submenu-link" data-bs-toggle="tooltip" title="Orders">
+                  <span class="submenu-title">Orders</span>
+                </a>
+              </li>
+              <li class="submenu-item">
+                <a href="/" class="submenu-link" data-bs-toggle="tooltip" title="Customers">
+                  <span class="submenu-title">Customers</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="menu-item">
+          <a href="/" class="menu-link" data-bs-title="Tooltip on top">
+            <span class="menu-icon"><i class="icon-calendar"></i></span>
+            <span class="menu-title">Calendar</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/" class="menu-link">
+            <span class="menu-icon"><i class="icon-mail"></i></span>
+            <span class="menu-title">Mail</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/" class="menu-link">
+            <span class="menu-icon"><i class="icon-chat"></i></span>
+            <span class="menu-title">Chat</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/" class="menu-link">
+            <span class="menu-icon"><i class="icon-tasks"></i></span>
+            <span class="menu-title">Tasks</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/" class="menu-link">
+            <span class="menu-icon"><i class="icon-project"></i></span>
+            <span class="menu-title">Projects</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/" class="menu-link">
+            <span class="menu-icon"><i class="icon-folder"></i></span>
+            <span class="menu-title">File Manager</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/" class="menu-link">
+            <span class="menu-icon"><i class="icon-text"></i></span>
+            <span class="menu-title">Notes</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/" class="menu-link">
+            <span class="menu-icon"><i class="icon-contacts"></i></span>
+            <span class="menu-title">Contacts</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <header class="header">
+      <div class="header-left">
+        <button class="btn btn-link text-white p-0 me-3" id="sidebar-toggle"><i class="icon-menu"></i></button>
+        <a href="/">
+          <img src="./assets/img/logo.svg" alt="">
+        </a>
+      </div>
+      <div class="header-right">
+        <nav class="nav nav-header">
+          <a href="#" class="nav-link"><i class="icon-search"></i></a>
+          <a href="#" class="nav-link">
+            <span class="notice active"><i class="icon-bell"></i></span>
+          </a>
+        </nav>
+        <div class="dropdown dropdown-profile">
+          <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            <img src="./assets/img/avatar.png" alt="">
+            <span class="d-none d-lg-inline-block">ArtTemplate</span>
+          </a>
+
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main class="content">
+      <div class="content-header">
+        <h1 class="content-title">Overview</h1>
+        <div class="content-tools">
+          <button class="btn btn-white"><i class="bi bi-download"></i></button>
+          <select name="" id="" class="form-select border-white ms-3">
+            <option value="" selected>Last 7 days</option>
+          </select>
+        </div>
+      </div>
+      <div class="content-body">
+        <div class="grid" style="--bs-columns: 3; --bs-gap: 30px;">
+          <div class="g-col-3 g-col-lg-3">
+            <div class="widget widget-total">
+              <ul class="widget-list">
+                <li class="widget-item">
+                  <div class="widget-details">
+                    <h4 class="widget-title">Total Income</h4>
+                    <p class="widget-amount up">$8.500<small>50.8%</small></p>
+                  </div>
+                  <div class="widget-body">
+                    <div id="totalIncomeChart"></div>
+                  </div>
+                </li>
+                <li class="widget-item">
+                  <div class="widget-details">
+                    <h4 class="widget-title">Total Expense</h4>
+                    <p class="widget-amount down">$3.500K<small>10.5%</small></p>
+                  </div>
+                  <div class="widget-body">
+                    <div id="totalExpenseChart"></div>
+                  </div>
+                </li>
+                <li class="widget-item">
+                  <div class="widget-details">
+                    <h4 class="widget-title">Total Bonus</h4>
+                    <p class="widget-amount up">$5.100K<small>24.9%</small></p>
+                  </div>
+                  <div class="widget-body">
+                    <div id="totalBonusChart"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="g-col-3 g-col-lg-2">
+            <div class="widget widget-statistics">
+              <div class="widget-header">
+                <h4 class="widget-title">Statistics</h4>
+                <div class="widget-tools">
+                  <input type="text" name="dates" class="form-control form-control-dates">
+                </div>
+              </div>
+              <div class="widget-body">
+               <ul class="widget-list">
+                <li class="widget-item">
+                  <span class="widget-icon income"><i class="icon-arrow-up"></i></span>
+                  <span class="widget-text">20.500<small>Income</small></span>
+                </li>
+                <li class="widget-item">
+                  <span class="widget-icon expense"><i class="icon-arrow-down"></i></span>
+                  <span class="widget-text">5.400<small>Expense</small></span>
+                </li>
+               </ul>
+                <div id="chartStatistics"></div>
+              </div>
+            </div>
+          </div>
+          <div class="g-col-3 g-col-lg-1">
+            <div class="widget widget-balance">
+              <div class="widget-header">
+                <h4 class="widget-title">Balance</h4>
+                <div class="widget-tools">
+                  <div class="dropdown dropdown-actions">
+                    <a class="dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      <i class="icon-dots-v"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="widget-body">
+                <p class="widget-text">$27,500.00</p>
+                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-income-tab" data-bs-toggle="pill"
+                      data-bs-target="#pills-income" type="button" role="tab" aria-controls="pills-income"
+                      aria-selected="true">Income</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-expenses-tab" data-bs-toggle="pill"
+                      data-bs-target="#pills-expenses" type="button" role="tab" aria-controls="pills-expenses"
+                      aria-selected="false">Expenses</button>
+                  </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  <div class="tab-pane fade show active" id="pills-income" role="tabpanel"
+                    aria-labelledby="pills-income-tab" tabindex="0">
+                    <div class="widget-chart-wrapper">
+                      <div class="widget-chart" id="chartBalance"></div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="pills-expenses" role="tabpanel" aria-labelledby="pills-expenses-tab"
+                    tabindex="0">
+                    ...
+                  </div>
+                </div>
+                <ul class="widget-info">
+                  <li><span>Income:</span> $500</li>
+                  <li><span>Spending:</span> $200</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="g-col-3 g-col-lg-2">
+            <div class="widget widget-mycard">
+              <div class="widget-header">
+                <h4 class="widget-title">My Cards</h4>
+                <div class="widget-tools">
+                  <select name="" id="selectCard" class="form-select" style="width: 217px">
+                    <option value="visa">5880 **** **** 8854</option>
+                    <option value="mastercard">5880 **** **** 8854</option>
+                    <option value="visa">5880 **** **** 8854</option>
+                  </select>
+                </div>
+              </div>
+              <div class="widget-body">
+                <div class="widget-content widget-content-left">
+                  <div class="credit-card">
+                    <span class="credit-card-type">
+                      <img src="./assets/img/cards/visa-white.svg" alt="VISA">
+                    </span>
+                    <p class="credit-card-balance"><small>Current Balance</small><strong>80,700.00</strong></p>
+                    <p class="credit-card-holder">Felecia Brown</p>
+                    <div class="credit-card-info">
+                      <p>•••• •••• •••• 8854</p>
+                      <p>12/19</p>
+                    </div>
+                  </div>
+                  <div class="widget-content-actions">
+                    <button class="btn btn-primary-light w-100"><i class="icon-plus me-2"></i>Add Card</button>
+                  </div>
+                </div>
+                <div class="widget-content widget-content-rigth">
+                  <dl class="des des-credit-card">
+                    <dt>Card Type:</dt>
+                    <dd>Visa</dd>
+
+                    <dt>Card Holder:</dt>
+                    <dd>Felecia Brown</dd>
+
+                    <dt>Expires:</dt>
+                    <dd>12/19</dd>
+
+                    <dt>Card Number:</dt>
+                    <dd>5880 5087 3288 8854</dd>
+
+                    <dt>Total Balance:</dt>
+                    <dd>80,700.00</dd>
+
+                    <dt>Total Debt:</dt>
+                    <dd>8,250.00</dd>
+                  </dl>
+                  <div class="widget-content-actions">
+                    <button class="btn btn-primary">Pay Debt</button>
+                    <button class="btn btn-outline">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="g-col-3 g-col-lg-1">
+            <div class="widget widget-transactions">
+              <div class="widget-header">
+                <h4 class="widget-title">Transactions</h4>
+                <div class="widget-tools">
+                  <div class="dropdown dropdown-actions">
+                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="icon-dots-v"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <ul class="list">
+                <li class="list-item">
+                  <span class="list-icon" style="--bg-icon: #F79009"><i class="icon-shopping"></i></span>
+                  <p class="list-title">Shopping<small class="list-date">08:00 AM — 19 August</small></p>
+                  <span class="list-price">-$1.400</span>
+                </li>
+                <li class="list-item">
+                  <span class="list-icon" style="--bg-icon: #BF5AF2"><i class="icon-travel"></i></span>
+                  <p class="list-title">Travel<small class="list-date">09:45 AM — 21 August</small></p>
+                  <span class="list-price">-$850</span>
+                </li>
+                <li class="list-item">
+                  <span class="list-icon" style="--bg-icon: #F8BD26"><i class="icon-cart"></i></span>
+                  <p class="list-title">Food<small class="list-date">10:15 AM — 24 August</small></p>
+                  <span class="list-price">-$2.150</span>
+                </li>
+                <li class="list-item">
+                  <span class="list-icon" style="--bg-icon: #E5347C"><i class="icon-like"></i></span>
+                  <p class="list-title">Medicine<small class="list-date">10:50 AM — 24 August</small></p>
+                  <span class="list-price">-$650</span>
+                </li>
+                <li class="list-item">
+                  <span class="list-icon" style="--bg-icon: #0086C9"><i class="icon-sport"></i></span>
+                  <p class="list-title">Sport<small class="list-date">12:45 AM — 28 August</small></p>
+                  <span class="list-price">-$900</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function generateRandomData() {
+      var data = [],
+        time = (new Date()).getTime(),
+        i;
+
+      for (i = -10; i <= 0; i++) {
+        data.push({
+          x: time + i * 1000,
+          y: Math.random()
+        });
+      }
+
+      return data;
+    }
+
+    // SparkLine
+    var sparkLineOptions = {
+      chart: {
+        type: 'areaspline',
+        backgroundColor: null,
+        borderWidth: 0,
+        height: 50,
+        style: {
+          overflow: 'visible'
+        }
+      },
+      title: {
+        text: null
+      },
+      subtitle: {
+        text: null
+      },
+      credits: {
+        enabled: false
+      },
+      xAxis: {
+        labels: {
+          enabled: false
+        },
+        title: {
+          text: null
+        },
+        startOnTick: false,
+        endOnTick: false,
+        tickPositions: [],
+        lineWidth: 0,
+      },
+      yAxis: {
+        endOnTick: false,
+        startOnTick: false,
+        labels: {
+          enabled: false
+        },
+        title: {
+          text: null
+        },
+        tickPositions: [0],
+        tickWidth: 0,
+        lineWidth: 0,
+        gridLineWidth: 0,
+      },
+      legend: {
+        enabled: false
+      },
+      tooltip: {
+        enabled: false
+      },
+      plotOptions: {
+        series: {
+          data: generateRandomData(),
+          lineWidth: 2,
+          marker: false,
+          fillColor: {
+            linearGradient: {
+              x1: 0,
+              y1: 0,
+              x2: 0,
+              y2: 1
+            },
+          },
+        }
+      },
+    };
+
+    Highcharts.chart('totalIncomeChart', Highcharts.merge(sparkLineOptions, {
+      series: [{
+        lineColor: 'rgba(10, 110, 225, 1)',
+        fillColor: {
+          stops: [
+            [0, 'rgba(10, 110, 225, .1)'], // start color
+            [1, 'rgba(10, 110, 225, 0)'] // end color
+          ]
+        }
+      }]
+    })
+    );
+    Highcharts.chart('totalExpenseChart', Highcharts.merge(sparkLineOptions, {
+      series: [{
+        lineColor: 'rgba(34, 171, 103, 1)',
+        fillColor: {
+          stops: [
+            [0, 'rgba(34, 171, 103, .1)'], // start color
+            [1, 'rgba(34, 171, 103, 0)'] // end color
+          ]
+        }
+      }]
+    })
+    );
+    Highcharts.chart('totalBonusChart', Highcharts.merge(sparkLineOptions, {
+      series: [{
+        lineColor: 'rgba(248, 189, 38, 1)',
+        fillColor: {
+          stops: [
+            [0, 'rgba(248, 189, 38, .1)'], // start color
+            [1, 'rgba(248, 189, 38, 0)'] // end color
+          ]
+        }
+      }]
+    })
+    );
+
+    // chartStatistics
+    Highcharts.chart('chartStatistics', {
+      chart: {
+        type: 'column',
+        height: 250,
+        spacingBottom: 0,
+        spacingTop: 10,
+        spacingLeft: 0,
+        spacingRight: 0,
+        style: {
+          fontFamily: 'Poppins',
+        }
+      },
+      title: {
+        text: '',
+      },
+      xAxis: {
+        categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        labels: {
+          style: {
+            color: '#8A9099',
+            fontSize: '12px',
+          }
+        },
+        lineColor: 'rgba(255, 255, 255, 0.2)',
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        min: 0,
+        max: 10000,
+        labels: {
+          style: {
+            color: '#8A9099',
+            fontSize: '12px',
+          }
+        }
+      },
+      legend: {
+        enabled: false
+      },
+      credits: {
+        enabled: false
+      },
+      tooltip: {
+        shared: true,
+        useHTML: true,
+        borderColor: '#E8E9EB',
+        borderRadius: 12,
+        headerFormat: '<div class="p-1">',
+        pointFormat: '<div class="d-flex flex-nowrap"><p class="mb-0"><i class="bi bi-circle-fill me-1 small" style="color: {series.color}"></i>{point.y}</p></div>',
+        footerFormat: '<p class="mb-0">{point.key}</p></div>',
+        valueDecimals: 0
+      },
+      plotOptions: {
+        column: {
+          borderRadius: 100,
+          pointWidth: 16,
+        }
+      },
+      series: [{
+        name: 'Income',
+        data: [1900, 3500, 6000, 4900, 9000, 5500, 4000],
+        color: '#0A6EE1',
+      }, {
+        name: 'Expenses',
+        data: [7500, 500, 3500, 1000, 1500, 3500, 1800],
+        color: '#22AB67'
+      }]
+    });
+
+    // chartBalance
+    Highcharts.chart('chartBalance', {
+      chart: {
+        type: 'spline',
+        backgroundColor: 'transparent',
+        height: 130,
+        spacingBottom: 0,
+        spacingTop: 10,
+        spacingLeft: 0,
+        spacingRight: 0,
+      },
+      title: {
+        text: ''
+      },
+      xAxis: {
+        title: {
+          text: ''
+        },
+        labels: {
+          enabled: false
+        },
+        lineColor: 'rgba(255, 255, 255, 0.2)',
+        tickColor: '#ffffff',
+        tickLength: 4,
+      },
+      yAxis: {
+        title: {
+          text: '',
+        },
+        labels: {
+          enabled: false
+        },
+        gridLineDashStyle: 'LongDash',
+        gridLineColor: 'rgba(255, 255, 255, 0.2)',
+      },
+      legend: {
+        enabled: false
+      },
+      credits: {
+        enabled: false
+      },
+      plotOptions: {
+        spline: {
+          marker: {
+            enabled: false
+          },
+          color: 'white',
+          lineWidth: 2,
+        }
+      },
+      series: [{
+        name: 'Income',
+        data: [1900, 3500, 6000, 4900, 9000, 5500, 4000],
+      }, {
+        name: 'Spending',
+        data: [7500, 500, 3500, 1000, 1500, 3500, 1800],
+      }]
+    });
+
+    $(document).ready(function () {
+      // Dates
+      $('input[name="dates"]').daterangepicker({
+        "autoApply": true,
+        "locale": {
+          "format": "DD MMM",
+        },
+      });
+
+      // selectCard
+      function formatCard(card) {
+        if (!card.id) {
+          return card.text;
+        }
+        var baseUrl = "/cards";
+        var $card = $(
+          '<span class="d-flex align-items-center text-nowrap"><img src="' + baseUrl + '/' + card.element.value.toLowerCase() + '.svg" class="object-fit-cover me-2" width="20" height="20" /> ' + card.text + '</span>'
+        );
+        return $card;
+      };
+      $('#selectCard').select2({
+        theme: 'bootstrap-5',
+        minimumResultsForSearch: Infinity,
+        templateResult: formatCard,
+        templateSelection: formatCard
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+// Override Bootstrap's Sass default variables
+//
+// Nearly all variables in Bootstrap are written with the `!default` flag.
+// This allows you to override the default values of those variables before
+// you import Bootstrap's source Sass files.
+//
+// Overriding the default variable values is the best way to customize your
+// CSS without writing _new_ styles. For example, change you can either change
+// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
+// `body { color: red; }`.
+
+
+//
+// Bring in Bootstrap
+//
+
+// Option 1
+//
+// Import all of Bootstrap's CSS
+
+// @import "bootstrap/scss/bootstrap";
+
+// Option 2
+//
+// Place variable overrides first, then import just the styles you need. Note that some stylesheets are required no matter what.
+
+// Icons
+@import "icons";
+
+// Poppins Font
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// Toggle global options
+$enable-gradients: false;
+$enable-shadows: true;
+$enable-cssgrid: true;
+
+$offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+
+// Customize some defaults
+$primary: #0A6EE1;
+$primary-light: #E6F0FC;
+$secondary: #E8E9EB;
+$success: #22AB67;
+$danger: #FD7972;
+$gray: #8A9099;
+$body-bg: #F8F8F8;
+$body-color: #3F434A;
+$sidebar-bg: #fff;
+$sidebar-width: 270px;
+$sidebar-width-toggle: 75px;
+$header-bg: #074E9F;
+$header-color: #fff;
+$header-height: 65px;
+$content-padding: 30px;
+$font-family-base: 'Poppins', sans-serif;
+$font-size-base: 0.9375rem;
+$font-icon: 'icomoon';
+$link-decoration: none;
+$input-btn-padding-y: 8px;
+$input-placeholder-color: #8A9099;
+$btn-padding-x: 12px;
+$btn-border-radius: 14px;
+$btn-box-shadow: none;
+$input-bg: #fff;
+$input-border-color: #E8E9EB;
+$input-box-shadow: unset;
+$input-border-radius: 14px;
+$input-padding-x: 16px;
+$form-select-box-shadow:$input-box-shadow;
+$box-shadow: 0px 8px 24px rgba(44, 63, 88, 0.1);
+$dropdown-border-color: #F8F8F8;
+$dropdown-border-radius: 12px;
+$border-color: #E8E9EB;
+$pagination-padding-x: 6px;
+$pagination-padding-y: 6px;
+$pagination-color: $body-color;
+$pagination-bg: transparent;
+$pagination-border-radius: 10px;
+$pagination-border-width: 0;
+$pagination-active-color: #fff;
+$pagination-active-bg: $primary;
+$pagination-disabled-color: #8A9099;
+$pagination-disabled-bg: #F8F8F8;
+$card-border-radius: 20px;
+$card-border-width: 0;
+$card-box-shadow: -4px 8px 24px rgba(44, 63, 88, 0.02);
+$table-th-font-weight: 500;
+$table-cell-padding-y: 20px;
+$table-cell-padding-x: 10px;
+$table-active-bg: #F8F8F8;
+$table-border-color: #E8E9EB;
+
+// Required
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdown";
+@import "bootstrap/scss/button-group";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar"; // Requires nav
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/accordion";
+@import "bootstrap/scss/pagination";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/alert";
+@import "bootstrap/scss/progress";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+@import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal"; // Requires transitions
+@import "bootstrap/scss/tooltip";
+@import "bootstrap/scss/popover";
+@import "bootstrap/scss/carousel";
+@import "bootstrap/scss/spinners";
+@import "bootstrap/scss/offcanvas"; // Requires transitions
+@import "bootstrap/scss/placeholders";
+
+// Helpers
+@import "bootstrap/scss/helpers";
+
+// Utilities
+@import "bootstrap/scss/utilities/api";
+
+
+//
+// Custom styles
+//
+
+@import "layout";
+@import "sidebar";
+@import "header";
+@import "content";
+
+@import "customs";

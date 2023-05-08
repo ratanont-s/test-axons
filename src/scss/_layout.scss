@@ -1,0 +1,36 @@
+.layout{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar-toggle{
+    .sidebar{
+        left: 0;
+    }
+    @include media-breakpoint-up(md){
+        .sidebar{
+            width: $sidebar-width;
+        }
+        .menu-title, .submenu-title{
+                opacity: 1;
+                visibility: visible;
+        }
+    }
+
+    @include media-breakpoint-up(xl){
+        .sidebar{
+            width: $sidebar-width-toggle;
+        }
+        .menu-title, .submenu-title{
+                opacity: 0;
+                visibility: hidden;
+        }
+        .content{
+            margin-left: $sidebar-width-toggle;
+        }
+    }
+}

@@ -1,0 +1,121 @@
+.sidebar{
+    position: fixed;
+    top: $header-height;
+    left: -100%;
+    bottom: 0;
+    width: $sidebar-width;
+    border-right: 1px solid #E8E9EB;
+    background-color: $sidebar-bg;
+    transition: all .3s ease;
+    z-index: 30;
+    @include media-breakpoint-up(md){
+        left: 0;
+    }
+    @include media-breakpoint-between(md, xl){
+        width: $sidebar-width-toggle;
+    }
+}
+
+.menu{
+    @extend .list-unstyled, .mb-0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    &-link{
+        display: flex;
+        align-items: center;
+        padding: 17px 30px 16px;
+        color: $body-color;
+        position: relative;
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: $primary;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            opacity: 0;
+        }
+        &[data-bs-toggle="collapse"]{
+            &::after{
+                content: "\e903";
+                font-family: $font-icon;
+                position: absolute;
+                top: 50%;
+                right: 30px;
+                transform: translateY(-50%);
+                font-size: 10px;
+                opacity: 0.25;
+                transition: transform .3s ease;
+            }
+        }
+        &[aria-expanded="true"]{
+            &::after{
+                transform: translateY(-50%) rotate(90deg);
+            }
+        }
+        &.active{
+            background-color: $primary-light;
+            color: $primary;
+            &::before{
+                opacity: 1;
+            }
+            .menu-icon{
+                color: $primary;
+            }
+        }
+    }
+    &-icon{
+        color: #8A9099;
+        min-width: 2em;
+        display: inline-flex;
+    }
+    &-title{
+        white-space: nowrap;
+        transition: all .3s ease;
+    }
+    @include media-breakpoint-between(md, xl){
+        &-title{
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+}
+
+.submenu{
+    @extend .list-unstyled, .mb-0;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba($body-bg,.4);
+    &-link{
+        display: flex;
+        align-items: center;
+        padding: 17px 30px 16px 60px;
+        color: $body-color;
+        position: relative;
+        &::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 35px;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 10rem;
+            background-color: $gray;
+        }
+        &.active{
+            background-color: rgba($body-bg,1);
+            &::before{
+                background-color: $body-color;
+            }
+        }
+    }
+    &-title{
+        white-space: nowrap;
+        transition: all .3s ease;
+    }
+}
